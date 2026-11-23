@@ -3,7 +3,7 @@
    OFFLINE SERVICE WORKER
 ========================================================= */
 
-const CACHE_NAME = "project-archive-v1";
+const CACHE_NAME = "xanthos-v2";
 
 const APP_FILES = [
     "./",

@@ -1,6 +1,7 @@
 {
-    "name": "Project Archive",
-    "short_name": "Archive",
+    "id": "./",
+    "name": "Xanthos",
+    "short_name": "Xanthos",
     "description": "A personal space for poetry, stories, thoughts, and journals.",
     "start_url": "./",
     "scope": "./",
