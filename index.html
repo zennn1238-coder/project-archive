@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="theme-color" content="#101c32">
+    <meta name="description" content="A personal archive for thoughts, poetry, stories, and fragments.">
+    <title>Project Archive</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+</head>
+<body>
+
+    <div class="app-shell">
+
+        <!-- HEADER -->
+        <header class="app-header">
+            <div class="brand">
+                <span class="brand-mark">A.</span>
+                <span class="brand-name">Project Archive</span>
+            </div>
+
+            <button class="icon-button" id="profileButton" aria-label="Profile">
+                <span>✦</span>
+            </button>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main id="mainContent">
+
+            <!-- HOME -->
+            <section class="page active" id="homePage">
+
+                <div class="home-intro">
+                    <p class="eyebrow">YOUR PERSONAL SPACE</p>
+                    <h1>A place for<br><span>everything you write.</span></h1>
+                    <p class="intro-text">
+                        Collect your thoughts, keep your stories,
+                        and return to the words that matter.
+                    </p>
+                </div>
+
+                <div class="featured-section">
+                    <div class="section-heading">
+                        <span>FEATURED</span>
+                    </div>
+
+                    <article class="featured-card" id="featuredCard">
+                        <div class="featured-decoration">✧</div>
+                        <div class="featured-content">
+                            <p class="featured-label">YOUR FIRST PAGE</p>
+                            <h2>Every story<br>begins somewhere.</h2>
+                            <p class="featured-description">
+                                This space will hold the writing
+                                you choose to revisit.
+                            </p>
+                            <button class="text-button" data-page="library">
+                                Explore your library <span>→</span>
+                            </button>
+                        </div>
+                    </article>
+                </div>
+
+                <div class="recent-section">
+                    <div class="section-heading">
+                        <span>RECENTLY WRITTEN</span>
+                        <button class="text-button small" data-page="library">
+                            View all →
+                        </button>
+                    </div>
+
+                    <div id="recentWriting" class="recent-list">
+                        <div class="empty-state">
+                            <span class="empty-symbol">✧</span>
+                            <p>Your words will find their home here.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="home-write-prompt">
+                    <p class="eyebrow">A LITTLE INVITATION</p>
+                    <h3>Start with a single sentence.</h3>
+                    <button class="primary-button" data-page="write">
+                        <span>Begin writing</span>
+                        <span>↗</span>
+                    </button>
+                </div>
+
+            </section>
+
+            <!-- LIBRARY -->
+            <section class="page" id="libraryPage">
+
+                <div class="page-intro">
+                    <p class="eyebrow">YOUR COLLECTION</p>
+                    <h1>The <span>Library.</span></h1>
+                    <p class="intro-text">
+                        Every piece you've written, kept in one place.
+                    </p>
+                </div>
+
+                <div class="library-controls">
+                    <div class="search-container">
+                        <span class="search-icon">⌕</span>
+                        <input
+                            type="search"
+                            id="librarySearch"
+                            placeholder="Search your writings..."
+                            autocomplete="off"
+                        >
+                    </div>
+
+                    <div class="filter-container" id="libraryFilters">
+                        <button class="filter-button active" data-filter="all">
+                            All
+                        </button>
+                        <button class="filter-button" data-filter="poetry">
+                            Poetry
+                        </button>
+                        <button class="filter-button" data-filter="story">
+                            Stories
+                        </button>
+                        <button class="filter-button" data-filter="essay">
+                            Essays
+                        </button>
+                        <button class="filter-button" data-filter="thought">
+                            Thoughts
+                        </button>
+                    </div>
+                </div>
+
+                <div class="library-grid" id="libraryGrid">
+                    <div class="empty-state library-empty">
+                        <span class="empty-symbol">✧</span>
+                        <h3>Your library is waiting.</h3>
+                        <p>Write something and it will appear here.</p>
+                        <button class="primary-button" data-page="write">
+                            Write something <span>↗</span>
+                        </button>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- WRITE -->
+            <section class="page" id="writePage">
+
+                <div class="editor-header">
+                    <div>
+                        <p class="eyebrow">YOUR PRIVATE DESK</p>
+                        <h1>Write.</h1>
+                    </div>
+
+                    <span class="save-indicator" id="saveIndicator">
+                        <span class="save-dot"></span>
+                        <span id="saveStatus">Ready</span>
+                    </span>
+                </div>
+
+                <div class="editor-container">
+
+                    <input
+                        type="text"
+                        id="writingTitle"
+                        class="title-input"
+                        placeholder="Untitled..."
+                        maxlength="200"
+                    >
+
+                    <div class="editor-meta">
+                        <select id="writingCategory" class="category-select">
+                            <option value="poetry">Poetry</option>
+                            <option value="story">Story</option>
+                            <option value="essay">Essay</option>
+                            <option value="thought">Thought</option>
+                            <option value="other">Other</option>
+                        </select>
+
+                        <span class="word-count" id="wordCount">
+                            0 words
+                        </span>
+                    </div>
+
+                    <textarea
+                        id="writingContent"
+                        class="writing-area"
+                        placeholder="Begin wherever you are..."
+                        spellcheck="true"
+                    ></textarea>
+
+                    <div class="editor-footer">
+                        <span class="editor-note">
+                            Take your time. This page is yours.
+                        </span>
+                    </div>
+
+                </div>
+
+                <div class="editor-actions">
+                    <button class="secondary-button" id="clearDraftButton">
+                        Clear page
+                    </button>
+
+                    <button class="primary-button" id="saveWritingButton">
+                        Save to Library <span>↗</span>
+                    </button>
+                </div>
+
+            </section>
+
+            <!-- MORE -->
+            <section class="page" id="morePage">
+
+                <div class="page-intro">
+                    <p class="eyebrow">YOUR ARCHIVE</p>
+                    <h1>More <span>spaces.</span></h1>
+                    <p class="intro-text">
+                        Little corners for the things you don't
+                        want to lose.
+                    </p>
+                </div>
+
+                <div class="more-grid">
+
+                    <button class="more-card" data-section="journal">
+                        <span class="more-icon">☽</span>
+                        <span class="more-card-title">Journal</span>
+                        <span class="more-card-description">
+                            Entries and everyday moments
+                        </span>
+                        <span class="more-arrow">↗</span>
+                    </button>
+
+                    <button class="more-card" data-section="fragments">
+                        <span class="more-icon">✧</span>
+                        <span class="more-card-title">Fragments</span>
+                        <span class="more-card-description">
+                            Lines, ideas, and unfinished thoughts
+                        </span>
+                        <span class="more-arrow">↗</span>
+                    </button>
+
+                    <button class="more-card" data-section="collections">
+                        <span class="more-icon">▤</span>
+                        <span class="more-card-title">Collections</span>
+                        <span class="more-card-description">
+                            Group your writings together
+                        </span>
+                        <span class="more-arrow">↗</span>
+                    </button>
+
+                    <button class="more-card" data-section="archive">
+                        <span class="more-icon">⌂</span>
+                        <span class="more-card-title">Archive</span>
+                        <span class="more-card-description">
+                            Your stored and archived pieces
+                        </span>
+                        <span class="more-arrow">↗</span>
+                    </button>
+
+                </div>
+
+                <div class="more-footer">
+                    <div class="brand-mark large">A.</div>
+                    <p>Project Archive</p>
+                    <span>A space made of words.</span>
+                </div>
+
+            </section>
+
+        </main>
+
+        <!-- BOTTOM NAVIGATION -->
+        <nav class="bottom-nav" id="bottomNav">
+
+            <button class="nav-item active" data-page="home">
+                <span class="nav-icon">⌂</span>
+                <span class="nav-label">Home</span>
+            </button>
+
+            <button class="nav-item" data-page="library">
+                <span class="nav-icon">▤</span>
+                <span class="nav-label">Library</span>
+            </button>
+
+            <button class="nav-item write-nav" data-page="write">
+                <span class="nav-icon">＋</span>
+                <span class="nav-label">Write</span>
+            </button>
+
+            <button class="nav-item" data-page="more">
+                <span class="nav-icon">☰</span>
+                <span class="nav-label">More</span>
+            </button>
+
+        </nav>
+
+    </div>
+
+    <!-- READING MODAL -->
+    <div class="reading-overlay" id="readingOverlay">
+        <div class="reading-panel">
+
+            <button class="reading-close" id="closeReadingButton">
+                ← <span>Library</span>
+            </button>
+
+            <div class="reading-content">
+                <p class="eyebrow" id="readingCategory">WRITING</p>
+                <h1 id="readingTitle"></h1>
+                <p class="reading-date" id="readingDate"></p>
+                <article class="reading-body" id="readingBody"></article>
+            </div>
+
+            <div class="reading-actions">
+                <button class="secondary-button" id="editReadingButton">
+                    Edit piece
+                </button>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- SIMPLE SECTION MODAL -->
+    <div class="section-overlay" id="sectionOverlay">
+        <div class="section-panel">
+            <button class="reading-close" id="closeSectionButton">
+                ← <span>Back</span>
+            </button>
+
+            <div id="sectionModalContent"></div>
+        </div>
+    </div>
+
+    <script src="app.js"></script>
+
+</body>
+</html>

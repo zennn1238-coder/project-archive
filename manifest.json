@@ -1,0 +1,12 @@
+{
+    "name": "Project Archive",
+    "short_name": "Archive",
+    "description": "A personal space for poetry, stories, thoughts, and journals.",
+    "start_url": "./index.html",
+    "scope": "./",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#101a2b",
+    "theme_color": "#101a2b",
+    "icons": []
+}
